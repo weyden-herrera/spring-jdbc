@@ -10,12 +10,13 @@ import java.util.List;
 import com.springjdbc.connection.ConnectionFactory;
 import com.springjdbc.connection.DBUtil;
 import com.springjdbc.dao.ProductDao;
+import com.springjdbc.dao.jdbc.DBConnection;
 import com.springjdbc.model.Product;
 
 public class ProductDaoImpl implements ProductDao {
 	
-	Connection connection;
-	Statement statement;
+	private Connection connection;
+	private Statement statement;
 
 	@Override
 	public List<Product> getAll() {
@@ -25,7 +26,7 @@ public class ProductDaoImpl implements ProductDao {
 		
 		//connection to database
 		try{
-			connection = ConnectionFactory.getConnection();
+			connection = DBConnection.current();
 			statement = connection.createStatement();
 			rs = statement.executeQuery(query);
 			
@@ -40,7 +41,6 @@ public class ProductDaoImpl implements ProductDao {
 		}finally {
 			DBUtil.close(rs);
 		    DBUtil.close(statement);
-		    DBUtil.close(connection);
 		}
 		
 		return productList;

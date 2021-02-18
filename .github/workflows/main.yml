@@ -7,4 +7,4 @@ jobs:
     steps:        
        - uses: actions/checkout@master
        - name:  trufflehog-actions-scan
-         uses: edplato/trufflehog-actions-scan
+         uses: edplato/trufflehog-actions-scan@master

@@ -13,6 +13,7 @@ public class ConnectionFactory {
 	
 	private static ConnectionFactory instance = new ConnectionFactory();
 	public static final String URL = "jdbc:mysql://localhost:3306/sample_db";
+	public static final String STR_URL = "http://uAdfDFADF:@!#FADF#FAAAFD@example.com"
 	public static final String USER = "root";
 	public static final String PASSWORD = "root";
 	public static final String DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
